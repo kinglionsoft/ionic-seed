@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      关于
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{hello}}</h1>
+  <h3> 3 + 5 ={{3+5}}</h3>
+
+  <ul class="list">
+    <li *ngFor="let h of heros" [style.color]="h.color" class="item">
+      【{{h.id}}】{{h.color}} <button ion-button (click)="delete($index,h)">删除</button>
+    </li>
+  </ul>
+  <button ion-button (click)="presentActionSheet()">请选择</button>
+
+  <ion-list>
+    <ion-item>
+      <ion-label fixed>新英雄</ion-label>
+      <ion-input type="text" [(ngModel)]="newHero" name="newHero" ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button (click)="heros.push(newHero)">添加</button>
+</ion-content>

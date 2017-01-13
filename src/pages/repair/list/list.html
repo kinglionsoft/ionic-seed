@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>报事报修</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-list-header>
+      我的报事报修
+    </ion-list-header>
+    <ion-item *ngIf="repairList.length<=0">
+      暂时没有数据
+    </ion-item>
+
+    <ion-item *ngFor="let r of repairList">
+      【{{r.id}}】{{r.title}}
+    </ion-item>
+  </ion-list>
+</ion-content>
