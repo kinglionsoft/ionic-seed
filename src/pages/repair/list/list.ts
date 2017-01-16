@@ -11,50 +11,46 @@ import { RepairModel } from '../models/repair-model';
 })
 export class RepairPage {
 
-  show:boolean=false;
+  currentDate: Date;
 
-  currentDate:Date;
-
-  repairList:RepairModel[];
+  repairList: RepairModel[];
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    private service:RepairService,
-    private log: LogService
+    private service: RepairService,
+    private log: LogService,
   ) {
-    this.currentDate=new Date();
+    this.currentDate = new Date();
 
-    this.repairList=[];
+    this.repairList = [];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RepairPage: '+JSON.stringify(this.navParams));
-  
+    console.log('ionViewDidLoad RepairPage: ' + JSON.stringify(this.navParams));
+
   }
 
-
-
-  back(){
-    this.navCtrl.pop(); 
+  back() {
+    this.navCtrl.pop();
   }
 
-  onColorChanged(event){
+  onColorChanged(event) {
     console.log(event)
   }
 
-  doRefresh(refresher){
-      this.service.getAll()
-      .subscribe(r=>{
-        if(r.Code>=0){
-          this.repairList=r.Data;
-        }else{
+  doRefresh(refresher) {
+    this.service.getAll()
+      .subscribe(r => {
+        if (r.Code >= 0) {
+          this.repairList = r.Data;
+        } else {
           //show error
         }
-        refresher.complete();
-      },x=>{
+      }, x => {
         console.error(x);
-        refresher.complete();
-      });
+        ;
+      }, () => refresher.complete());
   }
+
 }

@@ -13,9 +13,7 @@ export class LoadingService {
         if(this.isShow) return;
         
         this.loader = this.loadingCtrl.create({
-            content: "请稍等...",
-            dismissOnPageChange:true,
-            showBackdrop:true
+            content: "请稍等..."
         });
         this.isShow=true;
         this.loader.present();
@@ -23,6 +21,6 @@ export class LoadingService {
 
     hide(){
         this.isShow=false;
-        //this.loader.dismiss();
+        this.loader.dismiss();
     }
 }
