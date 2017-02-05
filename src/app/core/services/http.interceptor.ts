@@ -20,8 +20,7 @@ export class HttpInterceptor implements Interceptor {
         return response;
     }
 }
-
-let myHttpInterceptorFactory = (loading: LoadingService) => {
+export function myHttpInterceptorFactory(loading: LoadingService) {
     return new HttpInterceptor(loading);
 };
 

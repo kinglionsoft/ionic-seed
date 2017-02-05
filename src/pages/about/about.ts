@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
-import { NavController,ActionSheetController  } from 'ionic-angular';
+import { ActionSheet } from 'ionic-native';
+import { NavController, ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'page-about',
@@ -8,11 +8,11 @@ import { NavController,ActionSheetController  } from 'ionic-angular';
 })
 export class AboutPage {
 
-  public hello:string;
+  public hello: string;
 
-  public heros:any[];
+  public heros: any[];
 
-  public newHero='';
+  public newHero = '';
 
   // DI:依赖注入
   constructor(
@@ -20,25 +20,25 @@ export class AboutPage {
     public actionSheetCtrl: ActionSheetController
   ) {
 
-    this.hello='welcome!';
+    this.hello = 'welcome!';
 
-    this.heros=[
+    this.heros = [
       {
-        id:1,
-        color:'red'
+        id: 1,
+        color: 'red'
       },
       {
-        id:2,
-        color:'green'
+        id: 2,
+        color: 'green'
       },
       {
-        id:3,
-        color:'blue'
+        id: 3,
+        color: 'blue'
       }
     ];
   }
 
-   presentActionSheet() {
+  presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Modify your album',
       buttons: [
@@ -48,12 +48,12 @@ export class AboutPage {
           handler: () => {
             console.log('Destructive clicked');
           }
-        },{
+        }, {
           text: 'Archive',
           handler: () => {
             console.log('Archive clicked');
           }
-        },{
+        }, {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
@@ -65,9 +65,21 @@ export class AboutPage {
     actionSheet.present();
   }
 
-  delete(index:number,h:string){
-    if(confirm(`确定要删除${h}?`))
-      this.heros.splice(index,1);
+  delete(index: number, h: string) {
+    if (confirm(`确定要删除${h}?`))
+      this.heros.splice(index, 1);
+  }
+
+  actionNative() {
+    let buttonLabels = ['Share via Facebook', 'Share via Twitter'];
+    ActionSheet.show({
+      'title': 'What do you want with this image?',
+      'buttonLabels': buttonLabels,
+      'addCancelButtonWithLabel': 'Cancel',
+      'addDestructiveButtonWithLabel': 'Delete'
+    }).then((buttonIndex: number) => {
+      console.log('Button pressed: ' + buttonIndex);
+    });
   }
 
 }
