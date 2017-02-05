@@ -20,6 +20,7 @@ export class LoadingService {
     }
 
     hide(){
+        if(!this.isShow) return;
         this.isShow=false;
         this.loader.dismiss();
     }

@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
-import { InterceptorService } from 'ng2-interceptors';
-import 'rxjs/add/operator/catch';
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/observable/throw';
-
-import { LogService,LoadingService } from '../../app/core';
+import { Observable } from 'rxjs/Observable';
 import { ApiResult } from '../../app/shared';
 import { RepairModel } from './models/repair-model';
+import { HttpClient } from '../../app/core';
 
 @Injectable()
 export class RepairService {
 
     private _id: number = -1;
 
-    constructor(private http: InterceptorService,private log:LogService,private loading:LoadingService) { }
+    constructor(private http: HttpClient) { }
 
     getAll(): Observable<ApiResult<RepairModel[]>> {
-        return this.http.get('assets/data/repair.json')
+        return this.http.get('assets/data/repair.json',{'k':'1'})
             .map(r=> {
                 return r.json() as ApiResult<RepairModel>;
             })

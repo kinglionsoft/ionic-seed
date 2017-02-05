@@ -49,7 +49,7 @@ export class RepairPage {
         }
       }, x => {
         console.error(x);
-        ;
+        refresher.complete();
       }, () => refresher.complete());
   }
 

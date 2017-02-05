@@ -1,6 +1,6 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
+  "name": "ionic-seed",
+  "author": "yangchao",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -23,7 +23,7 @@
     "ionic-angular": "2.0.0-rc.4",
     "ionic-native": "2.2.11",
     "ionicons": "3.0.0",
-    "ng2-interceptors": "^1.2.4",
+    "moment": "^2.17.1",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "0.6.26"
   },
