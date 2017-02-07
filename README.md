@@ -1,6 +1,6 @@
 # Ionic2 App 种子项目
 
-本项目是对Ionic2 App的基本封装，基本的使用方法请查看[http://ionicframework.com/](http://ionicframework.com/).
+本项目是对Ionic2 App的基本封装，基本的使用方法请查看[http://ionicframework.com](http://ionicframework.com).
 
 # Usage
 
