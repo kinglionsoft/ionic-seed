@@ -25,5 +25,8 @@ export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.
 ## 统一导入rxjs的常用操作符
 统一导入rxjs的常用操作符，不需要在业务模块中再次导入，详见[./src/app/core/rxjs-operators.ts](./src/app/core/rxjs-operators.ts)。
 
+## Chrome 调试跨域
+[解决chrome调试时不能跨域的问题](http://www.cnblogs.com/laden666666/p/5544572.html)
+
 # License
-[MIT](./LICENSE) by yangchao.
+[MIT](/LICENSE) by yangchao.
