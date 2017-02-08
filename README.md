@@ -28,5 +28,13 @@ export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.
 ## Chrome 调试跨域
 [解决chrome调试时不能跨域的问题](http://www.cnblogs.com/laden666666/p/5544572.html)
 
+## node-sass rebuild 卡
+这是网络的原因。改为使用cnpm安装node-sass:
+``` bash
+npm uninstall node-sass
+npm install -g cnpm 
+cnpm i node-sass
+```
+
 # License
 [MIT](/LICENSE) by yangchao.
