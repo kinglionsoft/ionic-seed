@@ -37,16 +37,5 @@ export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.
     4. cnpm i @ionic/app-scripts@1.0.0
     5. 恢复package.json中： "@ionic/app-scripts": "1.0.0"；
 
-https://www.npmjs.com/package/node-gyp
-
-node-gyp list # 查询gyp是否安装成功，若失败使用node-gyp install 安装
-
-这是网络的原因。改为使用cnpm安装node-sass:
-``` bash
-npm uninstall node-sass
-npm install -g cnpm 
-cnpm i node-sass
-```
-
 # License
 [MIT](/LICENSE) by yangchao.
