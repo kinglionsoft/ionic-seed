@@ -2,7 +2,7 @@
 
 本项目是对Ionic2 App的基本封装，基本的使用方法请查看[http://ionicframework.com](http://ionicframework.com).
 
-# Usage
+# Known Issues
 
 ## Android生成时指定 gradle 路径
 在终端中(cmd\shell)生成Android时可能需要下载gradle：
@@ -28,7 +28,19 @@ export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.
 ## Chrome 调试跨域
 [解决chrome调试时不能跨域的问题](http://www.cnblogs.com/laden666666/p/5544572.html)
 
-## node-sass rebuild 卡
+## npm install时，node-sass rebuild 卡
+* 原因：node-sass依赖node-gyp，而安装node-gyp时需要从node下载头文件，非常慢。
+* 解决方法：使用[cnpm](https://cnpmjs.org/)安装 @ionic/app-scripts@1.0.0。
+    1. 删除目录下的node_modules; 
+    2. 删除package.json中： "@ionic/app-scripts": "1.0.0"；
+    3. npm install
+    4. cnpm i @ionic/app-scripts@1.0.0
+    5. 恢复package.json中： "@ionic/app-scripts": "1.0.0"；
+
+https://www.npmjs.com/package/node-gyp
+
+node-gyp list # 查询gyp是否安装成功，若失败使用node-gyp install 安装
+
 这是网络的原因。改为使用cnpm安装node-sass:
 ``` bash
 npm uninstall node-sass

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
+import { Tabs } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
@@ -14,6 +15,7 @@ export class TabsPage {
   tab2Root: any = AboutPage;
   tab3Root: any = ContactPage;
 
+  @ViewChild('mainTabs') tabs:Tabs;
   constructor() {
 
   }
