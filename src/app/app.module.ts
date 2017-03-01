@@ -10,7 +10,11 @@ import { PagesModule } from '../pages/pages.module';
     MyApp
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      tabsHideOnSubPages: true,
+      mode: 'ios'
+    }),
     CoreModule,
     PagesModule
   ],
@@ -18,6 +22,6 @@ import { PagesModule } from '../pages/pages.module';
   entryComponents: [
     MyApp
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
-export class AppModule {}
+export class AppModule { }

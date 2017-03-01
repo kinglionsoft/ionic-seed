@@ -1,19 +1,28 @@
 import { NgModule } from '@angular/core';
-import { IonicModule } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+//import { IonicModule } from 'ionic-angular';
 import { HttpClient } from './services/httpclient';
-import { LogService } from './services/log.service';
+import { Logger } from './services/logger';
 import { LoadingService } from './services/loading.service';
-
+import { MessageBox } from './services/messagebox';
 import './rxjs-operators';
 
+export function provideStorage() {
+    return new Storage(['sqlite','localstorage', 'websql', 'indexeddb'], { name: '_xg' });
+}
+
 @NgModule({
-    imports: [IonicModule],
+    imports: [
+        
+    ],
     exports: [],
     declarations: [],
     providers: [
-        LogService,
+        Logger,
         LoadingService,
-        HttpClient
+        HttpClient,
+        MessageBox,
+        { provide: Storage, useFactory: provideStorage }
     ]
 })
 export class CoreModule { }

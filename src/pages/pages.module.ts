@@ -6,11 +6,8 @@ import { ContactPage } from './contact/contact';
 import { HomePage } from './home/home';
 import { TabsPage } from './tabs/tabs';
 
-import { RepairModule } from './repair/repair.module';
-
 const _modules=[
-    IonicModule,
-    RepairModule
+    IonicModule
 ];
 
 const _pages=[
