@@ -35,14 +35,9 @@ export class HttpClient {
 
         if (showLoading !== false) this.loading.show();
 
-        return this.http.request(request)
-            .map(r => {
-                if (showLoading !== false) this.loading.hide();
-                return r;
-            })
-            .catch(x => {
-                if (showLoading !== false) this.loading.hide();
-                return Observable.throw(x);
+      return this.http.request(request)
+            .finally(()=>{
+                 if (showLoading !== false) this.loading.hide();
             });
     }
 

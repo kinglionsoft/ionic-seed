@@ -1,10 +1,23 @@
 import { Injectable } from '@angular/core';
-import { AlertController, AlertOptions } from 'ionic-angular';
+import { AlertController, AlertOptions, ToastController } from 'ionic-angular';
 
 @Injectable()
 export class MessageBox {
 
-    constructor(private alertCtrl: AlertController) { }
+    constructor(private alertCtrl: AlertController, private toastCtrl: ToastController) { }
+
+    /**
+     * Toast提示框
+     */
+    toast(msg: string, css: string = '') {
+        let toast = this.toastCtrl.create({
+            message: msg,
+            duration: 3000,
+            cssClass: css
+        });
+
+        toast.present();
+    }
 
     /** 提示框 */
     alert(msg: string) {
