@@ -25,12 +25,9 @@
 
 ## npm install时，node-sass rebuild 卡
 * 原因：node-sass依赖node-gyp，而安装node-gyp时需要从node下载头文件，非常慢。
-* 解决方法：使用[cnpm](https://cnpmjs.org/)安装 @ionic/app-scripts@1.0.0。
+* 解决方法：使用[cnpm](https://cnpmjs.org/)
     1. 删除目录下的node_modules; 
-    2. 删除package.json中： "@ionic/app-scripts": "1.0.0"；
-    3. npm install
-    4. cnpm i @ionic/app-scripts@1.0.0
-    5. 恢复package.json中： "@ionic/app-scripts": "1.0.0"；
+    2. cnpm install
 	
 ## Chrome 调试跨域
 * windows: [解决chrome调试时不能跨域的问题](http://www.cnblogs.com/laden666666/p/5544572.html)
