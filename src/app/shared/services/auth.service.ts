@@ -28,7 +28,7 @@ export class AuthService {
         }).map(r => {
             let result = r.json() as ApiResult<any>;
             if (result.Code >= 0 && result.Data) {
-                this._user=result.Data;
+                this._user = result.Data;
                 this.storage.set('user', result.Data).then(() => console.log('user info saved.'));
                 return true;
             }
@@ -63,8 +63,9 @@ export class AuthService {
     autoLogin(): Observable<boolean> {
         let emitter = new Subject<boolean>();
         this.storage.get('user').then((u: User) => {
-            if (!u) setTimeout(() => emitter.next(false), 0);
-            else {
+            if (!u) {
+                setTimeout(() => emitter.next(false), 0);
+            } else {
                 this.login(u.Name, u.Password)
                     .subscribe(res => emitter.next(res));
             }
@@ -74,12 +75,11 @@ export class AuthService {
 
 
     /**
-     * 删除用户数据     * 
+     * 删除用户数据
      * 
      * @memberOf AuthService
      */
     public delete() {
-        this.getUser().subscribe(n => { this.storage.remove('role_' + n.Id); })
         this.storage.remove('user');
     }
 

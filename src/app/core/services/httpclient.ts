@@ -35,9 +35,9 @@ export class HttpClient {
 
         if (showLoading !== false) this.loading.show();
 
-      return this.http.request(request)
-            .finally(()=>{
-                 if (showLoading !== false) this.loading.hide();
+        return this.http.request(request)
+            .finally(() => {
+                if (showLoading !== false) this.loading.hide();
             });
     }
 
@@ -58,9 +58,9 @@ export class HttpClient {
         return '?' + fegment.join('&');
     }
 
-     /**
-     * 通用异常处理
-     */
+    /**
+    * 通用异常处理
+    */
     public handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;
@@ -69,7 +69,7 @@ export class HttpClient {
             const err = body.error || JSON.stringify(body);
             errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
         } else {
-            errMsg = error ? error.toString(): '服务器发生异常，请稍后再试';
+            errMsg = error ? error.toString() : '服务器发生异常，请稍后再试';
         }
         console.error(errMsg);
         return Observable.throw(errMsg);

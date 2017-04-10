@@ -1,4 +1,4 @@
-export const Config={
-    environment:'dev',
-    host:'/'
-}
+export const Config = {
+    environment: 'dev',
+    host: '/'
+};

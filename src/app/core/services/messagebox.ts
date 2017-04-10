@@ -72,7 +72,7 @@ export class MessageBox {
         msg: string,
         inputName: string,
         inputPlaceholer: string,
-        onOk: (any) => void,
+        onOk: (data: any) => void,
         onCancel = (data: any) => { },
         okText = '确定',
         cancelText = ''
@@ -98,7 +98,7 @@ export class MessageBox {
                     handler: onOk
                 }
             ]
-        })
+        });
     }
 
     private _present(options: AlertOptions) {

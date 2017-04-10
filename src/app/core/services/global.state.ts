@@ -6,7 +6,6 @@ export class GlobalState {
 
   private _data = new Subject<Object>();
   private _dataStream$ = this._data.asObservable();
-
   private _subscriptions: Map<string, Array<Function>> = new Map<string, Array<Function>>();
 
   constructor() {

@@ -2,7 +2,7 @@ import { Directive, Input, Output, HostListener, ElementRef, Renderer, EventEmit
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { Camera, CameraOptions } from 'ionic-native';
-import { ActionSheetController } from 'ionic-angular'
+import { ActionSheetController } from 'ionic-angular';
 /**
  * 拍照或者从相册中选取一张图片
  * 用法：<span [camera]="options" (completed)="onCameraCompleted($event)"><span>
@@ -23,7 +23,7 @@ export class CameraDirective {
     constructor(private el: ElementRef,
         private renderer: Renderer,
         private actionSheetCtrl: ActionSheetController,
-        ) {
+    ) {
         this._default = {
             quality: 100,
             destinationType: Camera.DestinationType.FILE_URI,
@@ -72,7 +72,7 @@ export class CameraDirective {
 
         if (right && right instanceof Object) {
             for (let k in right) {
-                if (right[k] && right[k] != left[k]) {
+                if (right[k] && right[k] !== left[k]) {
                     left[k] = right[k];
                 }
             }

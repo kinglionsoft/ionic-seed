@@ -6,10 +6,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'about.html'
 })
 export class AboutPage {
- 
-  // DI:依赖注入
   constructor(
     public navCtrl: NavController
-  ) {
-  }
+  ) { }
 }

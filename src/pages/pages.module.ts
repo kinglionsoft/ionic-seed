@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
-
 import { AboutPage } from './about/about';
 import { ContactPage } from './contact/contact';
 import { HomePage } from './home/home';
 import { TabsPage } from './tabs/tabs';
 
-const _modules=[
+const _modules = [
     IonicModule
 ];
 
-const _pages=[
+const _pages = [
     AboutPage,
     ContactPage,
     HomePage,
@@ -25,7 +24,7 @@ const _pages=[
     declarations: [
         ..._pages
     ],
-    entryComponents:[
+    entryComponents: [
         ..._pages
     ],
     providers: [],

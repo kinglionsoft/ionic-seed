@@ -22,8 +22,8 @@ export class Logger {
      * @param extro 将被保存到日志
      */
     warn(msg: string, extro?: any) {
-         this._show(msg, 'danger');
-         this.save(extro);
+        this._show(msg, 'danger');
+        this.save(extro);
     }
 
     /**
@@ -34,23 +34,23 @@ export class Logger {
     error(msg: string, extro?: any) {
         this._show(msg, 'danger');
         this.save(extro);
-    }    
+    }
 
     /**
      * 保存日志
      * @param msg 错误的内容
      * @param extro 将被保存为本地日志
      */
-    save(extro?: any){
-        if(!extro) return;
+    save(extro?: any) {
+        if (!extro) return;
         console.log(JSON.stringify(extro));
     }
 
-    private _show(msg: string, css:string) {
+    private _show(msg: string, css: string) {
         let toast = this.toastCtrl.create({
             message: msg,
             duration: 3000,
-            cssClass:css
+            cssClass: css
         });
 
         toast.present();

@@ -9,7 +9,7 @@ import './rxjs-operators';
 
 @NgModule({
     imports: [
-        IonicStorageModule.forRoot({ name: '_xg',driverOrder: ['sqlite','localstorage', 'websql', 'indexeddb'] })
+        IonicStorageModule.forRoot({ name: '_xg', driverOrder: ['sqlite', 'localstorage', 'websql', 'indexeddb'] })
     ],
     exports: [],
     declarations: [],

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { CameraDirective } from './directives/camera.directive';
 
-const _PROVIDDERS=[
+const _PROVIDDERS = [
     AuthService
 ];
 
-const _DECLARATIONS=[
+const _DECLARATIONS = [
     CameraDirective
 ];
 
