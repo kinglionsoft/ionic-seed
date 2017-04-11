@@ -1,7 +1,7 @@
 import { Directive, Input, Output, HostListener, ElementRef, Renderer, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { Camera, CameraOptions } from 'ionic-native';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ActionSheetController } from 'ionic-angular';
 /**
  * 拍照或者从相册中选取一张图片
@@ -23,18 +23,19 @@ export class CameraDirective {
     constructor(private el: ElementRef,
         private renderer: Renderer,
         private actionSheetCtrl: ActionSheetController,
+        private cameraPlugin: Camera
     ) {
         this._default = {
             quality: 100,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA,
+            destinationType: this.cameraPlugin.DestinationType.FILE_URI,
+            sourceType: this.cameraPlugin.PictureSourceType.CAMERA,
             allowEdit: true,
             targetWidth: 100,
             targetHeight: 100,
-            mediaType: Camera.MediaType.PICTURE,
+            mediaType: this.cameraPlugin.MediaType.PICTURE,
             correctOrientation: true,
             saveToPhotoAlbum: false,
-            cameraDirection: Camera.Direction.BACK
+            cameraDirection: this.cameraPlugin.Direction.BACK
         };
     }
 
@@ -51,7 +52,7 @@ export class CameraDirective {
             .subscribe(
             type => {
                 this._options.sourceType = type;
-                Camera.getPicture(this._options).then((imageData) => {
+                this.cameraPlugin.getPicture(this._options).then((imageData) => {
                     this.completed.emit(imageData);
                     // File.resolveLocalFilesystemUrl(imageData)
                     //     .then(file=>{

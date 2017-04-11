@@ -4,6 +4,7 @@ import { AboutPage } from './about/about';
 import { ContactPage } from './contact/contact';
 import { HomePage } from './home/home';
 import { TabsPage } from './tabs/tabs';
+import { TestPage } from './test/test';
 
 const _modules = [
     IonicModule
@@ -14,6 +15,7 @@ const _pages = [
     ContactPage,
     HomePage,
     TabsPage,
+    TestPage
 ];
 
 @NgModule({

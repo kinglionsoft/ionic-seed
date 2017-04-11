@@ -7,6 +7,7 @@ import { MessageBox } from './services/messagebox';
 import { GlobalState } from './services/global.state';
 import './rxjs-operators';
 
+
 @NgModule({
     imports: [
         IonicStorageModule.forRoot({ name: '_xg', driverOrder: ['sqlite', 'localstorage', 'websql', 'indexeddb'] })

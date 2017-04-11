@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, ToastController, Nav } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
@@ -8,21 +9,23 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 export class MyApp {
   rootPage = TabsPage;
-
   backButtonPressed: boolean = false;  // 用于判断返回键是否触发
-
   @ViewChild(Nav) nav: Nav;
 
-  constructor(private platform: Platform, private toastCtrl: ToastController) {
-    platform.ready().then(() => {
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+  constructor(
+    private platform: Platform,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen,
+    private toastCtrl: ToastController) {
+      platform.ready().then(() => {
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
 
-      // 注册返回按键事件
-      if (this.platform.is('android')) {
-        this._registerExit();
-      }
-    });
+        // 注册返回按键事件
+        if (this.platform.is('android')) {
+          this._registerExit();
+        }
+      });
   }
 
   /**
