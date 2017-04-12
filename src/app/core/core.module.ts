@@ -5,6 +5,7 @@ import { Logger } from './services/logger';
 import { LoadingService } from './services/loading.service';
 import { MessageBox } from './services/messagebox';
 import { GlobalState } from './services/global.state';
+import { PlatformService } from './services/platform.service';
 import './rxjs-operators';
 
 
@@ -19,7 +20,8 @@ import './rxjs-operators';
         LoadingService,
         HttpClient,
         MessageBox,
-        GlobalState
+        GlobalState,
+        PlatformService
     ]
 })
 export class CoreModule { }

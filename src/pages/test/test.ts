@@ -7,10 +7,5 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TestPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TestPage');
-  }
-
+  constructor(public navCtrl: NavController, public navParams: NavParams) { }
 }

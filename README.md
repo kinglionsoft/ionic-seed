@@ -18,7 +18,16 @@
 ### MessageBox
 封装toast、alert、confirm、prompt方法。
 
+### 微信模式
+* 在微信浏览器中运行时，为 body 添加 'wechat' 的样式。
 
+``` html
+<body class="wechat" ...
+```
+
+* 隐藏 ion-header。
+* 通过物理返回键（android）、微信返回（ios）实现页面返回。
+* 通过拦截 H5 的 popstate 事件，实现连击返回键退出App的功能。
 
 
 # Known Issues
