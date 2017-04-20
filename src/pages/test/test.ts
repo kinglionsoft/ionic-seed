@@ -7,5 +7,6 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TestPage {
 
+  d: Date= new Date();
   constructor(public navCtrl: NavController, public navParams: NavParams) { }
 }

@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { CameraDirective } from './directives/camera.directive';
+import { LocalDatePipe } from './pipes/localdate.pipe';
+import { DatePipe } from '@angular/common';
 
 const _PROVIDDERS = [
-    AuthService
+    DatePipe,
+    AuthService,
+    LocalDatePipe
 ];
 
 const _DECLARATIONS = [
-    CameraDirective
+    CameraDirective,
+    LocalDatePipe
 ];
 
 @NgModule({
