@@ -59,5 +59,10 @@ set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.14.
 ``` bash
 export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.14.1-all.zip
 ```
+
+## Current working directory is not a Cordova-based project
+1. 需要在项目根目录运行ionic-cli; 
+2. 项目根目录需要有：platforms文件夹，www文件夹。这2个文件夹是编译生成的，没有加入git管理，若没有手动生成即可 。
+
 # License
 [MIT](/LICENSE) by yangchao.
