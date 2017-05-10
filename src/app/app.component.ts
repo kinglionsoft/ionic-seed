@@ -24,7 +24,7 @@ export class MyApp {
 
       if (platform.is('ios') || platform.is('android')) {
         this.statusBar.styleDefault();
-      } 
+      }
       // 注册返回按键事件
       this.platformService.rootNav = this.nav;
       this.platformService.registerBackButton();

@@ -6,3 +6,6 @@ export * from './services/httpclient';
 export * from './services/messagebox';
 export * from './services/global.state';
 export * from './services/platform.service';
+export * from './models/apiresult';
+export * from './models/user';
+export * from './services/auth.service';

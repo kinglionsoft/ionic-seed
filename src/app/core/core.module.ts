@@ -6,6 +6,7 @@ import { LoadingService } from './services/loading.service';
 import { MessageBox } from './services/messagebox';
 import { GlobalState } from './services/global.state';
 import { PlatformService } from './services/platform.service';
+import { AuthService } from './services/auth.service';
 import './rxjs-operators';
 
 
@@ -21,7 +22,8 @@ import './rxjs-operators';
         HttpClient,
         MessageBox,
         GlobalState,
-        PlatformService
+        PlatformService,
+        AuthService
     ]
 })
 export class CoreModule { }

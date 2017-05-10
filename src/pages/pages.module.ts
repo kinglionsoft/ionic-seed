@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
-
-import { SharedModule, LocalDatePipe } from '../app/shared';
+import { SharedModule } from '../app/shared';
 import { AboutPage } from './about/about';
 import { ContactPage } from './contact/contact';
 import { HomePage } from './home/home';

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
-import { HttpClient } from '../../core';
-import { User, ApiResult } from '../index';
+import { HttpClient } from './httpclient';
+import { User, ApiResult } from '../models';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
