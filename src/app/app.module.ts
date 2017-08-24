@@ -1,38 +1,35 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
-import { Camera } from '@ionic-native/camera';
+import { HttpModule } from '@angular/http';
+
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
+import { TabsPage } from '../pages/tabs/tabs';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { MyApp } from './app.component';
-import { CoreModule } from './core';
-import { PagesModule } from '../pages/pages.module';
+import { KlCoreModule } from 'kl/core';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    TabsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp, {
-      backButtonText: '',
-      tabsHideOnSubPages: true,
-      mode: 'ios'
-    }),
-    CoreModule,
-    PagesModule
+    IonicModule.forRoot(MyApp),
+    KlCoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    TabsPage
   ],
   providers: [
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    Camera,
     StatusBar,
-    SplashScreen
+    SplashScreen,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule { }

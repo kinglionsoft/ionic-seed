@@ -1,5 +1,6 @@
 {
-  "name": "ykseed",
+  "name": "ionic-seed3",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {}
 }

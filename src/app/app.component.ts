@@ -3,19 +3,17 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
-import { PlatformService } from './core';
+import { PlatformService } from 'kl/core';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-
-  rootPage = TabsPage;
-
+  rootPage: any = TabsPage;
   @ViewChild(Nav) nav: Nav;
 
   constructor(
-    private platform: Platform,
+    platform: Platform,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private platformService: PlatformService) {

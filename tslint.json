@@ -1,9 +1,13 @@
 {
-  "extends": [
-    "tslint-ionic-rules"
-  ],
+  "extends": "tslint-ionic-rules",
   "rules": {
     "no-duplicate-variable": true,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "avoid-template"
+    ],
     "no-unused-variable": [
       true
     ]

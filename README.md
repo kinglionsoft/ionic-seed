@@ -1,68 +1,26 @@
-# Ionic2 App 种子项目
+This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
-本项目是对Ionic2 App的基本封装，基本的使用方法请查看[http://ionicframework.com](http://ionicframework.com).
- 
-# Usages
+## How to use this template
 
-## CoreModule
+*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
 
-### Config
-配置全局参数；
+To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
 
-### HttpClient
-封装ng2的Http，实现拦截器、认证等功能，详见[./src/app/core/services/httpclient.ts](./src/app/core/services/httpclient.ts)。没有使用ng2-interceptor，因其不支持AOT。
+### With the Ionic CLI:
 
-### 统一导入rxjs的常用操作符
-统一导入rxjs的常用操作符，不需要在业务模块中再次导入，详见[./src/app/core/rxjs-operators.ts](./src/app/core/rxjs-operators.ts)。
+Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
 
-### MessageBox
-封装toast、alert、confirm、prompt方法。
-
-### 微信模式
-* 在微信浏览器中运行时，为 body 添加 'wechat' 的样式。
-
-``` html
-<body class="wechat" ...
+```bash
+$ sudo npm install -g ionic cordova
+$ ionic start myBlank blank
 ```
 
-* 隐藏 ion-header。
-* 通过物理返回键（android）、微信返回（ios）实现页面返回。
-* 通过拦截 H5 的 popstate 事件，实现连击返回键退出App的功能。
+Then, to run it, cd into `myBlank` and run:
 
-
-# Known Issues
-
-## npm install时，node-sass rebuild 卡
-* 原因：node-sass依赖node-gyp，而安装node-gyp时需要从node下载头文件，非常慢。
-* 解决方法：使用[cnpm](https://cnpmjs.org/)
-    1. 删除目录下的node_modules; 
-    2. cnpm install
-	
-## Chrome 调试跨域
-* windows: [解决chrome调试时不能跨域的问题](http://www.cnblogs.com/laden666666/p/5544572.html)
-* Mac:
-``` bash
-open -a "Google Chrome" --args --disable-web-security --user-data-dir
-```
-	
-## Android生成时指定 gradle 路径
-在终端中(cmd\shell)生成Android时可能需要下载gradle：
-``` bash
-Downloading http://services.gradle.org/distributions/gradle-2.14.1-all.zip
-```
-若下载速度慢，可使用迅雷等下载工具把gradle下载后，放到本地服务器；然后通过环境变量指定gradle下载路径：
-* windows:
-``` bash
-set CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.14.1-all.zip
-```
-* Mac OS X & Linux
-``` bash
-export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=http://localhost/gradle/gradle-2.14.1-all.zip
+```bash
+$ ionic cordova platform add ios
+$ ionic cordova run ios
 ```
 
-## Current working directory is not a Cordova-based project
-1. 需要在项目根目录运行ionic-cli; 
-2. 项目根目录需要有：platforms文件夹，www文件夹。这2个文件夹是编译生成的，没有加入git管理，若没有手动生成即可 。
+Substitute ios for android if not on a Mac.
 
-# License
-[MIT](/LICENSE) by yangchao.
