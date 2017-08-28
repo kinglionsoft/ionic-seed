@@ -18,7 +18,11 @@ import { KlCoreModule } from 'kl/core';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+      tabsHideOnSubPages: true,
+      mode: 'ios'
+    }),
     KlCoreModule
   ],
   bootstrap: [IonicApp],

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { LoginService } from './services/login.service';
+import { LoginService } from './services';
 
 @NgModule({
   imports: [],
