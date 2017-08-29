@@ -44,7 +44,7 @@ export class PlatformService {
       // 注册返回事件
       this._registerBrowserBack();
       // 进入Tabs之外的子页面时，添加页面历史
-      this.appCtrl.viewDidLoad.subscribe(this._onViewLoaded);
+      // this.appCtrl.viewDidLoad.subscribe(this._onViewLoaded);
     }
   }
 

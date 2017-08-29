@@ -10,7 +10,13 @@
     ],
     "no-unused-variable": [
       true
-    ]
+    ],
+    "ordered-imports": {
+      "options": {
+        "import-sources-order": "any",
+        "named-imports-order": "any"
+      }
+    }
   },
   "rulesDirectory": [
     "node_modules/tslint-eslint-rules/dist/rules"

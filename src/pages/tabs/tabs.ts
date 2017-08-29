@@ -1,6 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { Tabs } from 'ionic-angular';
+import { Tabs, IonicPage } from 'ionic-angular';
 
+@IonicPage({
+  name: 'maintabs'
+})
 @Component({
   templateUrl: 'tabs.html'
 })

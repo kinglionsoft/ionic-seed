@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -12,8 +11,7 @@ import { KlCoreModule } from 'kl/core';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -21,14 +19,13 @@ import { KlCoreModule } from 'kl/core';
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
       tabsHideOnSubPages: true,
-      mode: 'ios'
+      model: 'ios'
     }),
     KlCoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    TabsPage
+    MyApp
   ],
   providers: [
     StatusBar,
