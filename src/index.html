@@ -28,10 +28,17 @@
 
 </head>
 
-<body class="wechat">
+<body>
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
+
+  <script>
+    var ua = navigator.userAgent.toLowerCase();
+    if (/micromessenger/.test(ua)) {
+      document.body.classList.add('wechat');
+    }
+  </script>
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
