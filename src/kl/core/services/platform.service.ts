@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Platform, ToastController, Nav } from 'ionic-angular';
+import { Platform, ToastController, Nav, Tab } from 'ionic-angular';
 import { TabsPage } from '../../../pages/tabs/tabs';
 
 declare let WeixinJSBridge: any;
