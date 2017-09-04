@@ -19,4 +19,7 @@ export class RegisterPage {
     this.service.register();
   }
 
+  back() {
+    this.navCtrl.pop();
+  }
 }

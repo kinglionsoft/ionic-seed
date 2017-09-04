@@ -3,21 +3,25 @@ import { Http, Headers, Response, Request, RequestMethod, RequestOptions } from 
 import { Observable } from 'rxjs/Observable';
 import * as moment from 'moment';
 import { LoadingService } from './loading.service';
+import { ApiResult } from 'kl/model';
 
 @Injectable()
 export class HttpClient {
 
   constructor(private http: Http, private loading: LoadingService) { }
 
-  get<T>(url: string, params?: { [key: string]: string }, showLoading?: boolean): Observable<T> {
+  get<T>(url: string, params?: { [key: string]: string }, showLoading?: boolean): Observable<ApiResult<T>> {
     return this.request(url + this._formatUrl(params), RequestMethod.Get, null, showLoading);
   }
 
-  post<T>(url: string, body?: any, params?: { [key: string]: string }, showLoading?: boolean): Observable<T> {
+  post<T>(url: string, body?: any, params?: { [key: string]: any }, showLoading?: boolean): Observable<ApiResult<T>> {
+    if (params) {
+      url += this._formatUrl(params);
+    }
     return this.request(url, RequestMethod.Post, body, showLoading);
   }
 
-  request<T>(url: string, method: RequestMethod, body?: any, showLoading?: boolean): Observable<T> {
+  request<T>(url: string, method: RequestMethod, body?: any, showLoading?: boolean): Observable<ApiResult<T>> {
     let headers = new Headers();
 
     let options = new RequestOptions();

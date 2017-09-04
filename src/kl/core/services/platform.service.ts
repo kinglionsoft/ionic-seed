@@ -75,7 +75,7 @@ export class PlatformService {
    * 注册浏览器返回事件
    */
   private _registerBrowserBack() {
-    window.addEventListener('popstate', (e) => {
+    window.addEventListener('popstate', () => {
       this._onBackButtonClicked();
     }, false);
   }
@@ -118,6 +118,12 @@ export class PlatformService {
    * @memberOf MyApp
    */
   private _onBackButtonClicked() {
+    if (this._isWechat()) {
+      if (this._pop) { // 阻止pop()方法引用多次返回
+        this._pop = false;
+        return;
+      }
+    }
     let activeVC = this._rootNav.getActive();
     let page = activeVC.instance;
     if (!(page instanceof TabsPage)) {
@@ -153,5 +159,11 @@ export class PlatformService {
     if (!previous) return false;
     if (previous.id === active.id) return false;
     return true;
+  }
+
+  private _pop = false;
+  pop(nav) {
+    this._pop = true;
+    nav.pop();
   }
 }

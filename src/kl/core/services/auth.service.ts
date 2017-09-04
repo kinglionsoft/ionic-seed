@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from './httpclient';
-import { User, ApiResult } from 'kl/model';
+import { User } from 'kl/model';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class AuthService {
    * @memberOf AuthService
    */
   login(userName: string, password: string): Observable<boolean> {
-    return this.http.post<ApiResult<any>>('', null, {
+    return this.http.post<User>('', null, {
       UserName: userName,
       Password: password
     }).map(result => {
@@ -82,6 +82,7 @@ export class AuthService {
    * @memberOf AuthService
    */
   public delete() {
+    this._user = new User();
     this.storage.remove('user');
   }
 
