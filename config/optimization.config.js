@@ -1,5 +1,5 @@
 const path = require('path');
-const defaults = require('@ionic/app-scripts/config/webpack.config');
+const defaults = require('@ionic/app-scripts/config/optimization.config');
 
 module.exports = function () {
 
