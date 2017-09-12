@@ -3,9 +3,10 @@ const defaults = require('@ionic/app-scripts/config/webpack.config');
 
 module.exports = function () {
 
-  defaults.resolve.alias = {
-    kl: path.resolve('src/kl')
-  };
+  if (!defaults.resolve.alias) {
+    defaults.resolve.alias = {};
+  }
+  defaults.resolve.alias.kl = path.resolve('src/kl');
 
   return defaults;
 };
