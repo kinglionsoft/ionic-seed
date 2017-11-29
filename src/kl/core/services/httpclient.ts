@@ -38,7 +38,8 @@ export class HttpClient {
     return this.http.request(request)
       .finally(() => {
         if (showLoading !== false) this.loading.hide();
-      }).map(r => r.json() as T)
+      })
+      .map(r => r.json() as T)
       .catch(x => this.handleError(x));
   }
 
