@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators/map';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from './httpclient';
 import { User } from 'kl/model';
@@ -25,14 +26,17 @@ export class AuthService {
     return this.http.post<User>('', null, {
       UserName: userName,
       Password: password
-    }).map(result => {
-      if (result.Code >= 0 && result.Data) {
-        this._user = result.Data;
-        this.storage.set('user', result.Data).then(() => console.log('user info saved.'));
-        return true;
-      }
-      return false;
-    });
+    })
+    .pipe(
+      map(result => {
+        if (result.Code >= 0 && result.Data) {
+          this._user = result.Data;
+          this.storage.set('user', result.Data).then(() => console.log('user info saved.'));
+          return true;
+        }
+        return false;
+      })
+    );
   }
 
   /**

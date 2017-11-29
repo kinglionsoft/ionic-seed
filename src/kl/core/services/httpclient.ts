@@ -1,9 +1,13 @@
+import { finalize } from 'rxjs/operators/finalize';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, Request, RequestMethod, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
 import * as moment from 'moment';
 import { LoadingService } from './loading.service';
 import { ApiResult } from 'kl/model';
+import { map } from 'rxjs/operators/map';
+import { catchError } from 'rxjs/operators/catchError';
 
 @Injectable()
 export class HttpClient {
@@ -36,11 +40,13 @@ export class HttpClient {
     if (showLoading !== false) this.loading.show();
 
     return this.http.request(request)
-      .finally(() => {
-        if (showLoading !== false) this.loading.hide();
-      })
-      .map(r => r.json() as T)
-      .catch(x => this.handleError(x));
+      .pipe(
+        map(r => r.json() as ApiResult<T>),
+        finalize(() => {
+          if (showLoading !== false) this.loading.hide();
+        }),
+        catchError(x => this.handleError(x))
+      );
   }
 
   /**
